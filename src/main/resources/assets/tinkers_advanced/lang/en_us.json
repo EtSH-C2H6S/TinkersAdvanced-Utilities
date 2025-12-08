@@ -1,0 +1,39 @@
+{
+  "itemGroup.tinkers_advanced.tiac_utilities": "Tinkers' Advanced Utilities",
+
+  "block.tinkers_advanced.exchanger": "Atom Exchanger",
+
+  "block.tinkers_advanced.rose_gold_faucet": "Rose Gold Faucet",
+  "block.tinkers_advanced.hepatizon_faucet": "Hepatizon Faucet",
+  "block.tinkers_advanced.rose_gold_casting_table": "Rose Gold Casting Table",
+  "block.tinkers_advanced.rose_gold_casting_basin": "Rose Gold Casting Basin",
+  "block.tinkers_advanced.hepatizon_casting_table": "Hepatizon Casting Table",
+  "block.tinkers_advanced.hepatizon_casting_basin": "Hepatizon Casting Basin",
+  "block.tinkers_advanced.advanced_alloyer": "Advanced Alloyer",
+  "block.tinkers_advanced.fuel_engraver": "Fuel Engraver",
+
+  "item.tinkers_advanced.simple_quartz_lens": "Simple Quartz Fuel Lens",
+
+
+  "tooltip.tinkers_advanced.exchanger1": "Allow interactions between tool placed inside and other blocks.",
+  "tooltip.tinkers_advanced.exchanger3": "R-Click to insert tool ,R-Click with tool handle to toggle energy ejection.",
+  "tooltip.tinkers_advanced.advanced_alloyer1": "Works similar as Scorched Alloyer (But without GUI).",
+  "tooltip.tinkers_advanced.advanced_alloyer2": "Utilizes smeltery drains instead of smeltery tanks.",
+
+  "tooltip.tinkers_advanced.rose_gold_casting": "Cooling speed x%2$s when original cooling speed <%1$ss. Otherwise Cooling speed x%3$s.",
+  "tooltip.tinkers_advanced.hepatizon_casting": "x%1$s Cooling speed.",
+
+  "tooltip.tinkers_advanced.fuel_engraver1": "Can apply modifiers on the lens to the tool you are crafting consuming melting fuel.",
+  "tooltip.tinkers_advanced.fuel_engraver2": "Requires Tinker's Station(Or anvil) on 2 blocks below. R-Click at the bottom to place Fuel Lens.",
+
+
+  "tooltip.tinkers_advanced.lens_consumption": "Estimated Fuel Consumption: ",
+  "tooltip.tinkers_advanced.lens_temp": "Fuel Temperature Requirement: ",
+  "tooltip.tinkers_advanced.lens_warn": "Warnings: ",
+  "tooltip.tinkers_advanced.lens_consumption_warn": " >Fuel consumption too high.",
+  "tooltip.tinkers_advanced.lens_temp_warn": " >Temperature requirement too high.",
+  "tooltip.tinkers_advanced.lens_warn2": "Engraving process might not be fully completed.",
+
+  "message.tinkers_advanced.no_tinkers_station": "No Tinker's Station at 2 blocks below.",
+  "message.tinkers_advanced.engrave_fail_with_modifiers": "Engraving failed with message: "
+}

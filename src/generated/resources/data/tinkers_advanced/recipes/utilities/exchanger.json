@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "tconstruct:scorched_brick"
+    },
+    "B": {
+      "item": "tconstruct:ender_slime_crystal"
+    },
+    "C": {
+      "item": "tconstruct:scorched_proxy_tank"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BCB",
+    "AAA"
+  ],
+  "result": {
+    "item": "tinkers_advanced:exchanger"
+  },
+  "show_notification": true
+}

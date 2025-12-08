@@ -1,0 +1,41 @@
+{
+  "itemGroup.tinkers_advanced.tiac_utilities": "前沿匠艺 | 实用设备",
+
+  "block.tinkers_advanced.exchanger": "粒子交换室",
+
+  "block.tinkers_advanced.rose_gold_faucet": "玫瑰金浇筑口",
+  "block.tinkers_advanced.hepatizon_faucet": "黑色科林斯青铜浇筑口",
+  "block.tinkers_advanced.rose_gold_casting_table": "玫瑰金铸件台",
+  "block.tinkers_advanced.rose_gold_casting_basin": "玫瑰金铸造盆",
+  "block.tinkers_advanced.hepatizon_casting_table": "黑色科林斯青铜铸件台",
+  "block.tinkers_advanced.hepatizon_casting_basin": "黑色科林斯青铜铸造盆",
+  "block.tinkers_advanced.advanced_alloyer": "液金混熔炉",
+  "block.tinkers_advanced.fuel_engraver": "热射线蚀刻机",
+
+  "item.tinkers_advanced.simple_quartz_lens": "简易石英热能透镜",
+
+
+  "tooltip.tinkers_advanced.exchanger1": "当放入工具时允许工具与外界进行自动化交互（比如传输物品、能量）。",
+  "tooltip.tinkers_advanced.exchanger3": "用工具右键以放入工具，用工具手柄右键切换自动弹出能量模式。",
+  "tooltip.tinkers_advanced.advanced_alloyer1": "作用机制与焦褐合金炉类似（但是没有GUI）。",
+  "tooltip.tinkers_advanced.advanced_alloyer2": "会识别冶炼炉/熔铸炉的排液口而不是储罐以工作。",
+
+  "tooltip.tinkers_advanced.rose_gold_casting": "配方冷却时间小于%1$s秒时冷却速度变为%2$s倍，否则变为%3$s倍。",
+  "tooltip.tinkers_advanced.hepatizon_casting": "冷却速度变为%1$s倍。",
+
+  "tooltip.tinkers_advanced.fuel_engraver1": "一种先进设备，当你在其下方2格处的工匠砧/站上合成工具时，自动消耗冶炼炉燃料将透镜上的工具属性附加在合成的工具上。",
+  "tooltip.tinkers_advanced.fuel_engraver2": "手持热能透镜右键方块下部以装入透镜，不同类型工具可能需要不同类型的透镜。",
+
+
+  "tooltip.tinkers_advanced.lens_consumption": "预计燃料消耗: ",
+  "tooltip.tinkers_advanced.lens_temp": "需求燃料温度: ",
+  "tooltip.tinkers_advanced.lens_warn": "警告：",
+  "tooltip.tinkers_advanced.lens_consumption_warn": " >燃料消耗量过高",
+  "tooltip.tinkers_advanced.lens_temp_warn": " >燃料温度需求过高",
+  "tooltip.tinkers_advanced.lens_warn2": "可能无法彻底完成蚀刻！",
+
+
+
+  "message.tinkers_advanced.engrave_fail_with_modifiers": "蚀刻失败，工具被附加了相互冲突或者缺少前置的强化！错误信息：",
+  "message.tinkers_advanced.no_tinkers_station": "下方第二格需要有工匠站/砧才能工作。"
+}

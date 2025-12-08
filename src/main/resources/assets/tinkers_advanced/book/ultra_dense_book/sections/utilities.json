@@ -1,0 +1,47 @@
+[
+  {
+    "name": "index",
+    "type": "mantle:index",
+    "data": "utilities/index.json"
+  },
+  {
+    "name": "rose_gold_casting_basin",
+    "type": "showcase",
+    "data": "utilities/rose_gold_casting_basin.json"
+  },
+  {
+    "name": "rose_gold_casting_table",
+    "type": "showcase",
+    "data": "utilities/rose_gold_casting_table.json"
+  },
+  {
+    "name": "rose_gold_faucet",
+    "type": "showcase",
+    "data": "utilities/rose_gold_faucet.json"
+  },
+  {
+    "name": "hepatizon_casting_basin",
+    "type": "showcase",
+    "data": "utilities/hepatizon_casting_basin.json"
+  },
+  {
+    "name": "hepatizon_casting_table",
+    "type": "showcase",
+    "data": "utilities/hepatizon_casting_table.json"
+  },
+  {
+    "name": "hepatizon_faucet",
+    "type": "showcase",
+    "data": "utilities/hepatizon_faucet.json"
+  },
+  {
+    "name": "advanced_alloyer",
+    "type": "showcase",
+    "data": "utilities/advanced_alloyer.json"
+  },
+  {
+    "name": "exchanger",
+    "type": "showcase",
+    "data": "utilities/exchanger.json"
+  }
+]

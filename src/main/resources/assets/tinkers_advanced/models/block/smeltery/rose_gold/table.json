@@ -1,0 +1,8 @@
+{
+  "parent": "tconstruct:block/template/table",
+  "textures": {
+    "side":   "tinkers_advanced:block/smeltery/rose_gold/casting/table_side",
+    "top":    "tinkers_advanced:block/smeltery/rose_gold/casting/top",
+    "bottom": "tinkers_advanced:block/smeltery/rose_gold/casting/bottom"
+  }
+}

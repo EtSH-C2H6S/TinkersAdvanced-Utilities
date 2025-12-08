@@ -1,0 +1,16 @@
+{
+  "title": "Rose Gold Basin",
+  "text": [
+    {
+      "text": "Rose Gold Basin cools things faster when condition is proper."
+    },
+    {
+      "text": "Always requires a cast like the Scorched variant."
+    },
+    {
+      "text": "Crafted by casting 3 ingots of Molten Rose Gold on Scorched Basin.",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:rose_gold_casting_basin"
+}

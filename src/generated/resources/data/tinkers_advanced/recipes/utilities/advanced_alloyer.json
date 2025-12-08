@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "tconstruct:hepatizon_ingot"
+    },
+    "B": {
+      "item": "tconstruct:scorched_glass_pane"
+    },
+    "C": {
+      "item": "tconstruct:scorched_alloyer"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "result": {
+    "item": "tinkers_advanced:advanced_alloyer"
+  },
+  "show_notification": true
+}

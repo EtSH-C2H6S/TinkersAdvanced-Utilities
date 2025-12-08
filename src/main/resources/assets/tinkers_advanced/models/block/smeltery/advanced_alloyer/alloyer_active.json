@@ -1,0 +1,6 @@
+{
+  "parent": "tinkers_advanced:block/smeltery/advanced_alloyer/alloyer",
+  "textures": {
+    "front": "tinkers_advanced:block/smeltery/advanced_alloyer/alloyer_active"
+  }
+}
