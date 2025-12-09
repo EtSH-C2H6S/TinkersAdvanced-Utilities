@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "tconstruct:hepatizon_ingot"
+    },
+    "B": {
+      "tag": "forge:ingots/steel"
+    },
+    "C": {
+      "tag": "forge:ingots/cobalt"
+    },
+    "D": {
+      "item": "tconstruct:cinderslime_ingot"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ADA"
+  ],
+  "result": {
+    "item": "tinkers_advanced:fuel_engraver"
+  },
+  "show_notification": true
+}

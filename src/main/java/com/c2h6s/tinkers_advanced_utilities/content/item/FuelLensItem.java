@@ -10,8 +10,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.TooltipKey;
+import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.ModifierManager;
@@ -19,7 +21,7 @@ import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import slimeknights.tconstruct.library.tools.helper.TooltipBuilder;
 import slimeknights.tconstruct.library.tools.item.ModifiableItem;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.plugin.jei.melting.MeltingFuelHandler;
 
 import java.util.List;
@@ -35,15 +37,12 @@ public class FuelLensItem extends ModifiableItem implements IFuelLensItem {
     @Override
     public List<Component> getStatInformation(IToolStackView tool, @Nullable Player player, List<Component> tooltips, TooltipKey key, TooltipFlag tooltipFlag) {
         tooltips = new TooltipBuilder(tool,tooltips).add(EtSTLibToolStat.FLUID_EFFICIENCY).addAllFreeSlots().getTooltips();
-        float consumption = 0;
-        var temp = 0;
         for (ModifierEntry entry : tool.getModifierList()) {
             entry.getHook(ModifierHooks.TOOLTIP).addTooltip(tool, entry, player, tooltips, key, tooltipFlag);
-            if (!ModifierManager.isInTag(entry.getId(), TiAcUTagkeys.Modifiers.ENGRAVER_BLACKLIST)) {
-                consumption += entry.getLevel()*FuelEngraverBlockEntity.CFG_AMOUNT_EACH_LEVEL;
-                temp += FuelEngraverBlockEntity.CFG_TEMP_EACH_MODIFIER;
-            }
         }
+        if (!(tool.getItem() instanceof IFuelLensItem fuelLens)) return tooltips;
+        float consumption = fuelLens.getBasicFuelConsumption((ToolStack) tool,fuelLens,null);
+        var temp = fuelLens.getTempRequirement((ToolStack) tool,fuelLens,null);
         consumption*=1-tool.getStats().get(EtSTLibToolStat.FLUID_EFFICIENCY);
         int roundConsumption = (int) consumption<consumption?(int) consumption+1:(int) consumption;
         tooltips.add(Component.translatable("tooltip.tinkers_advanced.lens_consumption").append(""+roundConsumption)
@@ -61,6 +60,23 @@ public class FuelLensItem extends ModifiableItem implements IFuelLensItem {
         if (hasWarn2||hasWarn1) tooltips.add(Component.translatable("tooltip.tinkers_advanced.lens_warn2")
                 .withStyle(style -> style.withColor(0xFF0000)));
         return tooltips;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
+        if (stack.is(TinkerTags.Items.MELEE)||stack.is(TinkerTags.Items.MELEE_PRIMARY)){
+            tooltip.add(Component.translatable("tooltip.tinkers_advanced.lens_melee").withStyle(ChatFormatting.GRAY));
+        }
+        if (stack.is(TinkerTags.Items.RANGED)){
+            tooltip.add(Component.translatable("tooltip.tinkers_advanced.lens_ranged").withStyle(ChatFormatting.GRAY));
+        }
+        if (stack.is(TinkerTags.Items.AMMO)){
+            tooltip.add(Component.translatable("tooltip.tinkers_advanced.lens_ammo").withStyle(ChatFormatting.GRAY));
+        }
+        if (stack.is(TinkerTags.Items.ARMOR)){
+            tooltip.add(Component.translatable("tooltip.tinkers_advanced.lens_armor").withStyle(ChatFormatting.GRAY));
+        }
     }
 
     @Override

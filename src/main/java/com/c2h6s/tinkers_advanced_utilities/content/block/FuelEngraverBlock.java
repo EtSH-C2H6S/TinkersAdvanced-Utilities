@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import slimeknights.mantle.block.InventoryBlock;
@@ -33,6 +34,8 @@ import slimeknights.tconstruct.smeltery.block.entity.component.TankBlockEntity;
 import slimeknights.tconstruct.tables.block.entity.table.TinkerStationBlockEntity;
 
 import javax.annotation.Nullable;
+
+import java.util.List;
 
 import static slimeknights.tconstruct.smeltery.block.component.SearedTankBlock.LIGHT;
 
@@ -95,6 +98,11 @@ public class FuelEngraverBlock extends InventoryBlock implements TankBlockEntity
         return InteractionResult.FAIL;
     }
 
+    @Override
+    public List<ItemStack> getDrops(BlockState p_287732_, LootParams.Builder p_287596_) {
+        return List.of(new ItemStack(this.asItem())) ;
+    }
+
     public static boolean isInPlace(Level world, BlockPos pos){
         return world.getBlockEntity(pos.below(2)) instanceof TinkerStationBlockEntity;
     }
@@ -119,17 +127,5 @@ public class FuelEngraverBlock extends InventoryBlock implements TankBlockEntity
     @Override
     public int getCapacity() {
         return FuelEngraverBlockEntity.CFG_CAPACITY;
-    }
-
-    @Override
-    public boolean canConnectRedstone(BlockState state, BlockGetter level, BlockPos pos, @org.jetbrains.annotations.Nullable Direction direction) {
-        return true;
-    }
-
-    @Override
-    public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
-        if (!level.isClientSide() && level.getBlockEntity(pos) instanceof FuelEngraverBlockEntity tank) {
-            tank.handleRedstone(level.hasNeighborSignal(pos));
-        }
     }
 }

@@ -1,5 +1,6 @@
 {
   "itemGroup.tinkers_advanced.tiac_utilities": "前沿匠艺 | 实用设备",
+  "itemGroup.tinkers_advanced.tiac_fuel_lens": "前沿匠艺 | 热能透镜",
 
   "block.tinkers_advanced.exchanger": "粒子交换室",
 
@@ -13,6 +14,10 @@
   "block.tinkers_advanced.fuel_engraver": "热射线蚀刻机",
 
   "item.tinkers_advanced.simple_quartz_lens": "简易石英热能透镜",
+  "item.tinkers_advanced.simple_amethyst_lens": "简易紫水晶热能透镜",
+  "item.tinkers_advanced.simple_diamond_lens": "简易钻石热能透镜",
+  "item.tinkers_advanced.simple_emerald_lens": "简易绿宝石热能透镜",
+
 
 
   "tooltip.tinkers_advanced.exchanger1": "当放入工具时允许工具与外界进行自动化交互（比如传输物品、能量）。",
@@ -26,6 +31,11 @@
   "tooltip.tinkers_advanced.fuel_engraver1": "一种先进设备，当你在其下方2格处的工匠砧/站上合成工具时，自动消耗冶炼炉燃料将透镜上的工具属性附加在合成的工具上。",
   "tooltip.tinkers_advanced.fuel_engraver2": "手持热能透镜右键方块下部以装入透镜，不同类型工具可能需要不同类型的透镜。",
 
+  "tooltip.tinkers_advanced.lens_melee": "能应用于常规近战武器。",
+  "tooltip.tinkers_advanced.lens_ranged": "能应用于常规远程武器。",
+  "tooltip.tinkers_advanced.lens_ammo": "能应用于常规弹药。",
+  "tooltip.tinkers_advanced.lens_armor": "能应用于常规护甲。",
+
 
   "tooltip.tinkers_advanced.lens_consumption": "预计燃料消耗: ",
   "tooltip.tinkers_advanced.lens_temp": "需求燃料温度: ",
@@ -37,5 +47,17 @@
 
 
   "message.tinkers_advanced.engrave_fail_with_modifiers": "蚀刻失败，工具被附加了相互冲突或者缺少前置的强化！错误信息：",
-  "message.tinkers_advanced.no_tinkers_station": "下方第二格需要有工匠站/砧才能工作。"
+  "message.tinkers_advanced.engrave_fail_with_low_temp": "蚀刻失败，燃料温度不够！",
+  "message.tinkers_advanced.engrave_fail_with_low_fuel": "蚀刻失败，燃料存储量过少！",
+  "message.tinkers_advanced.no_tinkers_station": "下方第二格需要有工匠站/砧才能工作。",
+
+
+
+  "modifier.tinkers_advanced.fuel_engraved": "热能刻蚀",
+  "modifier.tinkers_advanced.fuel_engraved.flavor": "离子化燃料留下的烧痕",
+  "modifier.tinkers_advanced.fuel_engraved.description": "为工具添加额外的工具属性，可以在调配台上移除。注：提取产生的水晶没有任何作用。",
+
+  "modifier.tinkers_advanced.water_washed": "水洗",
+  "modifier.tinkers_advanced.water_washed.flavor": "洗洗更健康",
+  "modifier.tinkers_advanced.water_washed.description": "什么效果也没有，在强化后会被自动移除。\n（那我问你，你这个强化是干什么用的）"
 }

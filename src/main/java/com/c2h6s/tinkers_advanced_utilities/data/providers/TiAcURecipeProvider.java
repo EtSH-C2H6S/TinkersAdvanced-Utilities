@@ -3,17 +3,20 @@ package com.c2h6s.tinkers_advanced_utilities.data.providers;
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced_utilities.TinkersAdvancedUtilities;
 import com.c2h6s.tinkers_advanced_utilities.init.TiAcUItems;
+import com.c2h6s.tinkers_advanced_utilities.init.TiAcUModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.Tags;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
 import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
+import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
@@ -34,6 +37,9 @@ public class TiAcURecipeProvider extends RecipeProvider implements ISmelteryReci
     }
     public static ResourceLocation salvageFolder(String name){
         return ResourceLocation.tryParse(TinkersAdvanced.getLocation("modifiers/salvage/")+name);
+    }
+    public static ResourceLocation lensFolder(String name){
+        return ResourceLocation.tryParse(baseFolder+"/lens/"+name);
     }
 
     @Override
@@ -75,6 +81,36 @@ public class TiAcURecipeProvider extends RecipeProvider implements ISmelteryReci
                 .pattern("ABA").pattern("BCB").pattern("ABA")
                 .define('A', TinkerMaterials.hepatizon.getIngot()).define('B', TinkerSmeltery.scorchedGlassPane)
                 .define('C',TinkerSmeltery.scorchedAlloyer).save(consumer,new ResourceLocation(folder+"/advanced_alloyer"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,TiAcUItems.FUEL_ENGRAVER.get()).unlockedBy("has_item", has(TinkerMaterials.hepatizon.getIngot()))
+                .pattern("ABA").pattern("BCB").pattern("ADA")
+                .define('A', TinkerMaterials.hepatizon.getIngot()).define('B', TinkerMaterials.steel.getIngotTag())
+                .define('C',TinkerMaterials.cobalt.getIngotTag()).define('D', TinkerMaterials.cinderslime.getIngot())
+                .save(consumer,new ResourceLocation(folder+"/fuel_engraver"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,TiAcUItems.SIMPLE_AMETHYST_LENS.get())
+                .unlockedBy("has_item", has(TiAcUItems.FUEL_ENGRAVER.get()))
+                .pattern(" A ").pattern("ABA").pattern(" A ")
+                .define('A', Items.AMETHYST_SHARD).define('B', TinkerSmeltery.scorchedSoulGlassPane)
+                .save(consumer,lensFolder(TiAcUItems.SIMPLE_AMETHYST_LENS.getId().getPath()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,TiAcUItems.SIMPLE_DIAMOND_LENS.get())
+                .unlockedBy("has_item", has(TiAcUItems.FUEL_ENGRAVER.get()))
+                .pattern(" A ").pattern("ABA").pattern(" A ")
+                .define('A', Items.DIAMOND).define('B', TinkerSmeltery.scorchedSoulGlassPane)
+                .save(consumer,lensFolder(TiAcUItems.SIMPLE_DIAMOND_LENS.getId().getPath()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,TiAcUItems.SIMPLE_EMERALD_LENS.get())
+                .unlockedBy("has_item", has(TiAcUItems.FUEL_ENGRAVER.get()))
+                .pattern(" A ").pattern("ABA").pattern(" A ")
+                .define('A', Items.EMERALD).define('B', TinkerSmeltery.scorchedSoulGlassPane)
+                .save(consumer,lensFolder(TiAcUItems.SIMPLE_EMERALD_LENS.getId().getPath()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC,TiAcUItems.SIMPLE_QUARTZ_LENS.get())
+                .unlockedBy("has_item", has(TiAcUItems.FUEL_ENGRAVER.get()))
+                .pattern(" A ").pattern("ABA").pattern(" A ")
+                .define('A', Items.QUARTZ).define('B', TinkerSmeltery.scorchedSoulGlassPane)
+                .save(consumer,lensFolder(TiAcUItems.SIMPLE_QUARTZ_LENS.getId().getPath()));
+
+        ModifierRecipeBuilder.modifier(TiAcUModifiers.WATER_WASHED.getId()).exactLevel(1).addInput(Items.WATER_BUCKET)
+                .addInput(Items.WATER_BUCKET).addInput(Items.WATER_BUCKET).addInput(Items.WATER_BUCKET)
+                .save(consumer,modifierFolder("water_washed"));
     }
 
     @Override

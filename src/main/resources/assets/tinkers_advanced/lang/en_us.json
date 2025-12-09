@@ -1,5 +1,6 @@
 {
   "itemGroup.tinkers_advanced.tiac_utilities": "Tinkers' Advanced Utilities",
+  "itemGroup.tinkers_advanced.tiac_fuel_lens": "Tinkers' Advanced Fuel Lens",
 
   "block.tinkers_advanced.exchanger": "Atom Exchanger",
 
@@ -13,6 +14,9 @@
   "block.tinkers_advanced.fuel_engraver": "Fuel Engraver",
 
   "item.tinkers_advanced.simple_quartz_lens": "Simple Quartz Fuel Lens",
+  "item.tinkers_advanced.simple_amethyst_lens": "Simple Amethyst Fuel Lens",
+  "item.tinkers_advanced.simple_diamond_lens": "Simple Diamond Fuel Lens",
+  "item.tinkers_advanced.simple_emerald_lens": "Simple Emerald Fuel Lens",
 
 
   "tooltip.tinkers_advanced.exchanger1": "Allow interactions between tool placed inside and other blocks.",
@@ -26,6 +30,10 @@
   "tooltip.tinkers_advanced.fuel_engraver1": "Can apply modifiers on the lens to the tool you are crafting consuming melting fuel.",
   "tooltip.tinkers_advanced.fuel_engraver2": "Requires Tinker's Station(Or anvil) on 2 blocks below. R-Click at the bottom to place Fuel Lens.",
 
+  "tooltip.tinkers_advanced.lens_melee": "Can be applied to common melee & harvest tools.",
+  "tooltip.tinkers_advanced.lens_ranged": "Can be applied to common ranged tools.",
+  "tooltip.tinkers_advanced.lens_ammo": "Can be applied to common ammo.",
+  "tooltip.tinkers_advanced.lens_armor": "Can be applied to common armors.",
 
   "tooltip.tinkers_advanced.lens_consumption": "Estimated Fuel Consumption: ",
   "tooltip.tinkers_advanced.lens_temp": "Fuel Temperature Requirement: ",
@@ -35,5 +43,16 @@
   "tooltip.tinkers_advanced.lens_warn2": "Engraving process might not be fully completed.",
 
   "message.tinkers_advanced.no_tinkers_station": "No Tinker's Station at 2 blocks below.",
-  "message.tinkers_advanced.engrave_fail_with_modifiers": "Engraving failed with message: "
+  "message.tinkers_advanced.engrave_fail_with_low_temp": "Engraving failed with not enough fuel temperature!",
+  "message.tinkers_advanced.engrave_fail_with_low_fuel": "Engraving failed with fuel not sufficient!",
+  "message.tinkers_advanced.engrave_fail_with_modifiers": "Engraving failed with message: ",
+
+
+  "modifier.tinkers_advanced.fuel_engraved": "Fuel Engraved",
+  "modifier.tinkers_advanced.fuel_engraved.flavor": "Marked by ionized fuels.",
+  "modifier.tinkers_advanced.fuel_engraved.description": "Contains extra modifiers.",
+
+  "modifier.tinkers_advanced.water_washed": "Water Washed",
+  "modifier.tinkers_advanced.water_washed.flavor": "",
+  "modifier.tinkers_advanced.water_washed.description": "NO effect."
 }

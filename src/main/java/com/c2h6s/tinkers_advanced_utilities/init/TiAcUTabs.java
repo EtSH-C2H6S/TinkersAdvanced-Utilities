@@ -6,6 +6,7 @@ import com.c2h6s.tinkers_advanced_utilities.TinkersAdvancedUtilities;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
@@ -21,6 +22,16 @@ public class TiAcUTabs {
             .icon(() -> TiAcUItems.EXCHANGER.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 for (RegistryObject<BlockItem> object: TiAcCrItem.getListMiscBlock(TinkersAdvancedUtilities.MODID)){
+                    if (object.isPresent()) {
+                        output.accept(object.get());
+                    }
+                }
+            }).build());
+    public static final RegistryObject<CreativeModeTab> LENS_TAB = CREATIVE_MODE_TABS.register("tiac_fuel_lens", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.tinkers_advanced.tiac_fuel_lens"))
+            .icon(() -> TiAcUItems.SIMPLE_QUARTZ_LENS.get().getDefaultInstance())
+            .displayItems((parameters, output) -> {
+                for (RegistryObject<Item> object: TiAcUItems.SIMPLE_LENS.getEntries()){
                     if (object.isPresent()) {
                         output.accept(object.get());
                     }

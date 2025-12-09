@@ -1,7 +1,19 @@
 {
   "values": [
     {
+      "id": "tinkers_advanced:simple_emerald_lens",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:simple_amethyst_lens",
+      "required": false
+    },
+    {
       "id": "tinkers_advanced:simple_quartz_lens",
+      "required": false
+    },
+    {
+      "id": "tinkers_advanced:simple_diamond_lens",
       "required": false
     }
   ]

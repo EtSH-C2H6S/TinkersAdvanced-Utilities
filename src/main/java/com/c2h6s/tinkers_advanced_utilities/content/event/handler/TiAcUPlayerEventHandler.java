@@ -22,5 +22,11 @@ public class TiAcUPlayerEventHandler {
             event.getToolTip().add(Component.translatable("tooltip.tinkers_advanced.advanced_alloyer2")
                     .withStyle(ChatFormatting.GRAY));
         }
+        if (stack.is(TiAcUItems.FUEL_ENGRAVER.get())){
+            event.getToolTip().add(Component.translatable("tooltip.tinkers_advanced.fuel_engraver1")
+                    .withStyle(ChatFormatting.GRAY));
+            event.getToolTip().add(Component.translatable("tooltip.tinkers_advanced.fuel_engraver2")
+                    .withStyle(ChatFormatting.GRAY));
+        }
     }
 }

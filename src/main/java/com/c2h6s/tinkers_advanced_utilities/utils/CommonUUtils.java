@@ -7,11 +7,11 @@ import java.util.Random;
 public class CommonUUtils {
     public static int processConsumptionInt(int consumption,float efficiency){
         efficiency = Math.min(efficiency,1);
-        var mul = 1-efficiency;
-        var f = consumption*mul;
-        var i = (int) f;
+        float mul = 1-efficiency;
+        float f = consumption*mul;
+        int i = (int) f;
         f-=i;
         Random random = new Random();
-        return i + random.nextFloat()<f?1:0;
+        return i + (random.nextFloat()<f?1:0);
     }
 }

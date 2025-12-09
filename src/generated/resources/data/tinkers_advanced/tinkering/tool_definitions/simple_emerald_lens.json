@@ -1,0 +1,11 @@
+{
+  "modules": [
+    {
+      "type": "tconstruct:modifier_slots",
+      "slots": {
+        "abilities": 1,
+        "defense": 1
+      }
+    }
+  ]
+}

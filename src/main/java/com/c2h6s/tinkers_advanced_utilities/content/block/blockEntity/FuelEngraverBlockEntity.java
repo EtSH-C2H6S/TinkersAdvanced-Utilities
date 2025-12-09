@@ -1,7 +1,7 @@
 package com.c2h6s.tinkers_advanced_utilities.content.block.blockEntity;
 
 import com.c2h6s.etstlib.register.EtSTLibToolStat;
-import com.c2h6s.tinkers_advanced_utilities.TiAcUConfig;
+import com.c2h6s.tinkers_advanced_utilities.api.interfaces.IFuelEngravingModifier;
 import com.c2h6s.tinkers_advanced_utilities.api.interfaces.IFuelLensItem;
 import com.c2h6s.tinkers_advanced_utilities.content.tool.modifiers.FuelEngraved;
 import com.c2h6s.tinkers_advanced_utilities.data.TiAcUTagkeys;
@@ -46,6 +46,7 @@ import slimeknights.tconstruct.library.client.model.ModelProperties;
 import slimeknights.tconstruct.library.fluid.FluidTankAnimated;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.modifiers.ModifierManager;
 import slimeknights.tconstruct.library.recipe.fuel.MeltingFuelLookup;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
@@ -60,11 +61,9 @@ import slimeknights.tconstruct.smeltery.block.entity.ITankBlockEntity;
 import slimeknights.tconstruct.smeltery.block.entity.component.TankBlockEntity;
 import slimeknights.tconstruct.smeltery.item.TankItem;
 import slimeknights.tconstruct.tables.block.entity.inventory.TinkerStationContainerWrapper;
-import slimeknights.tconstruct.tables.block.entity.table.TinkerStationBlockEntity;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 import java.util.Optional;
 
 import static com.c2h6s.tinkers_advanced_utilities.TiAcUConfig.COMMON;
@@ -74,6 +73,14 @@ public class FuelEngraverBlockEntity extends TableBlockEntity implements ITankBl
     @SubscribeEvent
     public static void onItemCrafted(PlayerEvent.ItemCraftedEvent event){
         if (event.getEntity().level().isClientSide) return;
+        var stack = event.getCrafting();
+        if (stack.getItem() instanceof IModifiable){
+            ToolStack toolStack = ToolStack.from(stack);
+            var lvl = toolStack.getModifierLevel(TiAcUModifiers.WATER_WASHED.getId());
+            if (lvl>0){
+                toolStack.removeModifier(TiAcUModifiers.WATER_WASHED.getId(), lvl);
+            }
+        }
         var player = event.getEntity();
         if (event.getInventory() instanceof TinkerStationContainerWrapper wrapper){
             var station = ((TinkerStationContainerWrapperAccessor)wrapper).tiacu$getStation();
@@ -86,60 +93,16 @@ public class FuelEngraverBlockEntity extends TableBlockEntity implements ITankBl
     }
 
     public boolean processCraftingResult(ItemStack stack,Player player){
-        if (!(stack.getItem() instanceof IModifiable)) return false;
+        if (!(stack.getItem() instanceof IModifiable)||stack.getItem() instanceof IFuelLensItem) return false;
         var lensStack = getItem(INPUT);
         if (!(lensStack.getItem() instanceof IFuelLensItem fuelLens)||!(lensStack.getItem() instanceof IModifiable)) return false;
         if (!fuelLens.getItemPredicate().test(stack)) return false;
         var fuel = getTank().getFluid();
         var lensTool = ToolStack.from(lensStack);
         var craftedTool = ToolStack.from(stack);
-        if (fuel.getFluid().isSame(TinkerFluids.venom.get())) return clearEngraved(craftedTool,lensTool);
-        if (craftedTool.getModifierLevel(TiAcUModifiers.FUEL_ENGRAVED.getId())>0) return false;
-        var meltingFuel = MeltingFuelLookup.findFuel(fuel.getFluid());
-        if (meltingFuel==null) return false;
-        var tempPresent = meltingFuel.getTemperature();
-        var modifiersToAdd = new ArrayList<ModifierEntry>();
-        var fluidConsumption = 0;
-        var tempRequirement = 0;
-        float efficiency = lensTool.getStats().get(EtSTLibToolStat.FLUID_EFFICIENCY);
-        for (ModifierEntry entry:lensTool.getModifierList()){
-            if (ModifierManager.isInTag(entry.getId(), TiAcUTagkeys.Modifiers.ENGRAVER_BLACKLIST)) continue;
-            var i1 = fluidConsumption+entry.getLevel()*CFG_AMOUNT_EACH_LEVEL;
-            var i2 = tempRequirement+CFG_TEMP_EACH_MODIFIER;
-            var i3 = CommonUUtils.processConsumptionInt(fluidConsumption,efficiency);
-            if (i3>getTank().drain(i3, IFluidHandler.FluidAction.SIMULATE).getAmount()|| i2>tempPresent) break;
-            fluidConsumption = i1;
-            tempRequirement = i2;
-            modifiersToAdd.add(entry);
-        }
-        if (modifiersToAdd.isEmpty()) return false;
-        var toolCopy = craftedTool.copy();
-        toolCopy.getPersistentData().put(FuelEngraved.KEY_EXTRA_MODIFIERS,
-                ModifierNBT.builder().add(modifiersToAdd).build().serializeToNBT());
-        toolCopy.addModifier(TiAcUModifiers.FUEL_ENGRAVED.getId(),1);
-        for (ModifierEntry entry:toolCopy.getModifierList()){
-            var c = entry.getHook(ModifierHooks.VALIDATE).validate(toolCopy,entry);
-            if (c!=null){
-                player.sendSystemMessage(Component.translatable("message.tinkers_advanced.engrave_fail_with_modifiers").append(c));
-            }
-        }
-        getTank().drain(CommonUUtils.processConsumptionInt(fluidConsumption,efficiency), IFluidHandler.FluidAction.EXECUTE);
-        craftedTool.getPersistentData().put(FuelEngraved.KEY_EXTRA_MODIFIERS,
-                ModifierNBT.builder().add(modifiersToAdd).build().serializeToNBT());
-        craftedTool.addModifier(TiAcUModifiers.FUEL_ENGRAVED.getId(),1);
-        return true;
+        return fuelLens.processToolResult(craftedTool,lensTool,fuelLens,player,fuel,this);
     }
-    public boolean clearEngraved(ToolStack result,ToolStack lens){
-        if (result.getModifierLevel(TiAcUModifiers.FUEL_ENGRAVED.getId())<=0) return false;
-        int amountNeeded = CommonUUtils.processConsumptionInt(CFG_AMOUNT_REMOVE_ENGRAVE,
-                lens.getStats().get(EtSTLibToolStat.FLUID_EFFICIENCY));
-        var drained = getTank().drain(amountNeeded, IFluidHandler.FluidAction.SIMULATE).getAmount();
-        if (drained<amountNeeded) return false;
-        result.getPersistentData().remove(FuelEngraved.KEY_EXTRA_MODIFIERS);
-        result.removeModifier(TiAcUModifiers.FUEL_ENGRAVED.getId(),1);
-        getTank().drain(amountNeeded, IFluidHandler.FluidAction.EXECUTE);
-        return true;
-    }
+
 
     public void craftSoundAndParts(Player player,FluidStack fluidStack){
         var option = new FluidParticleData(TinkerCommons.fluidParticle.get(), fluidStack);
@@ -167,7 +130,6 @@ public class FuelEngraverBlockEntity extends TableBlockEntity implements ITankBl
     @Getter
     protected final FluidTankAnimated tank;
     private final LazyOptional<IFluidHandler> fluidHolder;
-    private boolean lastRedstone = false;
     @Getter @Setter
     private int lastStrength = -1;
 
@@ -226,26 +188,6 @@ public class FuelEngraverBlockEntity extends TableBlockEntity implements ITankBl
             return getItem(INPUT).isEmpty() && !pStack.isEmpty() && pStack.getItem() instanceof IFuelLensItem;
         }
         return false;
-    }
-
-    public void handleRedstone(boolean hasSignal) {
-        if (lastRedstone != hasSignal) {
-            lastRedstone = hasSignal;
-            if (hasSignal&&this.level!=null&&!this.level.isClientSide) {
-                var fluidStack = getTank().getFluid();
-                if (!fluidStack.getFluid().isSame(TinkerFluids.venom.get())) return;
-                var stack = getItem(INPUT);
-                if (!(stack.getItem() instanceof IModifiable)||!(stack.getItem() instanceof IFuelLensItem)) return;
-                var be = this.level.getBlockEntity(this.worldPosition.below(2));
-                if (be instanceof TinkerStationBlockEntity station){
-                    for (int i=1;i<station.getInputCount();i++){
-                        var item = station.getItem(i);
-                        if (!(item.getItem() instanceof IModifiable)) continue;
-                        if (clearEngraved(ToolStack.from(item),ToolStack.from(stack))) craftSoundAndParts(null,fluidStack);
-                    }
-                }
-            }
-        }
     }
 
 
@@ -313,14 +255,7 @@ public class FuelEngraverBlockEntity extends TableBlockEntity implements ITankBl
     public void load(CompoundTag tag) {
         tank.setCapacity(getCapacity(getBlockState().getBlock()));
         updateTank(tag.getCompound(NBTTags.TANK));
-        lastRedstone = tag.getBoolean(TAG_REDSTONE);
         super.load(tag);
-    }
-
-    @Override
-    public void saveAdditional(CompoundTag tags) {
-        super.saveAdditional(tags);
-        tags.putBoolean(TAG_REDSTONE, lastRedstone);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.c2h6s.tinkers_advanced_utilities.data.providers;
 
+import com.c2h6s.tinkers_advanced_utilities.data.TiAcUTagkeys;
 import com.c2h6s.tinkers_advanced_utilities.init.TiAcUItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -22,6 +23,7 @@ public class TiAcUItemTagProvider extends ItemTagsProvider {
         TiAcUItems.SIMPLE_LENS_MAP.keySet().stream().map(RegistryObject::getId).forEach(id->{
             tag(TinkerTags.Items.MODIFIABLE).addOptional(id);
             tag(TinkerTags.Items.BONUS_SLOTS).addOptional(id);
+            tag(TiAcUTagkeys.Items.MODIFIABLE_FUEL_LENS).addOptional(id);
         });
     }
 }

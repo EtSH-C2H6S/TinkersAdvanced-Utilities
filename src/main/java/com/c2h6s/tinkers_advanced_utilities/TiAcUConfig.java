@@ -40,6 +40,7 @@ public class TiAcUConfig {
         public final ForgeConfigSpec.IntValue FUEL_ENGRAVER_TEMP_EACH_MODIFIER;
         public final ForgeConfigSpec.IntValue FUEL_ENGRAVER_AMOUNT_EACH_LEVEL;
         public final ForgeConfigSpec.IntValue FUEL_ENGRAVER_AMOUNT_REMOVE_ENGRAVE;
+        public final ForgeConfigSpec.BooleanValue FUEL_ENGRAVER_DISPLAY_FAIL_MESSAGE;
 
         public Common(ForgeConfigSpec.Builder builder){
             builder.comment("***注意！").comment("***Notice")
@@ -87,6 +88,9 @@ public class TiAcUConfig {
             this.FUEL_ENGRAVER_AMOUNT_REMOVE_ENGRAVE = builder.comment("Fuel Engraver venom consumption each level when removing engrave, 10 by default.")
                     .comment("热射线蚀刻机移除蚀刻时消耗的毒液量，默认10mB。")
                     .defineInRange("FuelEngraverVenomConsumption",10,0,Integer.MAX_VALUE);
+            this.FUEL_ENGRAVER_DISPLAY_FAIL_MESSAGE = builder.comment("Fuel Engraver display fail message on use, true by default.")
+                    .comment("热射线蚀刻机在蚀刻失败时显示失败原因，默认true。")
+                    .define("FuelEngraverDisplayFailure",true);
 
             builder.pop();
         }
