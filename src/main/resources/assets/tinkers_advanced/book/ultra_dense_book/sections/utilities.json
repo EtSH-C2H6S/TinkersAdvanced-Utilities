@@ -43,5 +43,10 @@
     "name": "exchanger",
     "type": "showcase",
     "data": "utilities/exchanger.json"
+  },
+  {
+    "name": "fuel_engraver",
+    "type": "showcase",
+    "data": "utilities/fuel_engraver.json"
   }
 ]

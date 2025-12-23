@@ -5,13 +5,17 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.recipe.alloying.IMutableAlloyTank;
-import slimeknights.tconstruct.smeltery.block.entity.component.DrainBlockEntity;
+import slimeknights.tconstruct.smeltery.block.entity.component.DuctBlockEntity;
+import slimeknights.tconstruct.smeltery.block.entity.component.SmelteryInputOutputBlockEntity;
 import slimeknights.tconstruct.smeltery.block.entity.controller.HeatingStructureBlockEntity;
 import slimeknights.tconstruct.smeltery.block.entity.module.alloying.SmelteryAlloyTank;
+
+import java.util.function.Predicate;
 
 @RequiredArgsConstructor
 public class AdvancedMixerAlloyTank implements IMutableAlloyTank {
@@ -25,6 +29,8 @@ public class AdvancedMixerAlloyTank implements IMutableAlloyTank {
 
     @Nullable
     private SmelteryAlloyTank smelteryAlloyTank;
+    @Nullable
+    private Predicate<FluidStack> fluidFilter;
 
     @Override
     public FluidStack drain(int tank, FluidStack fluidStack) {
@@ -47,6 +53,7 @@ public class AdvancedMixerAlloyTank implements IMutableAlloyTank {
     @Override
     public boolean canFit(FluidStack fluid, int removed) {
         findSmeltery();
+        if (this.fluidFilter!=null&&!this.fluidFilter.test(fluid)) return false;
         return outputTank.fill(fluid, IFluidHandler.FluidAction.SIMULATE) == fluid.getAmount();
     }
 
@@ -64,10 +71,12 @@ public class AdvancedMixerAlloyTank implements IMutableAlloyTank {
                 if (direction == Direction.DOWN) continue;
                 var fetchPos = pos.relative(direction);
                 var be = level.getBlockEntity(fetchPos);
-                if (be instanceof DrainBlockEntity drain) {
-                    var masterPos = drain.getMasterPos();
+                if (be instanceof SmelteryInputOutputBlockEntity.SmelteryFluidIO fluidIO) {
+                    var masterPos = fluidIO.getMasterPos();
                     if (masterPos != null && level.getBlockEntity(masterPos) instanceof HeatingStructureBlockEntity heating) {
                         this.smelteryAlloyTank = new SmelteryAlloyTank(heating.getTank());
+                        if (fluidIO instanceof DuctBlockEntity duct)
+                            this.fluidFilter = fluid -> duct.getItemHandler().getFluid().isFluidEqual(fluid);
                         break;
                     }
                 }

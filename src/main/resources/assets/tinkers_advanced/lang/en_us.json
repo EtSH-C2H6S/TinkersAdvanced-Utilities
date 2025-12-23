@@ -18,6 +18,8 @@
   "item.tinkers_advanced.simple_diamond_lens": "Simple Diamond Fuel Lens",
   "item.tinkers_advanced.simple_emerald_lens": "Simple Emerald Fuel Lens",
 
+  "item.tinkers_advanced.simple_quartz_lens.description": "Fuel Lens are item that coworks with Fuel Engraver.\nSimple Lens don't contains material but can be upgraded. Includes Diamond,Emerald,Quartz and Amethyst variant.",
+
 
   "tooltip.tinkers_advanced.exchanger1": "Allow interactions between tool placed inside and other blocks.",
   "tooltip.tinkers_advanced.exchanger3": "R-Click to insert tool ,R-Click with tool handle to toggle energy ejection.",

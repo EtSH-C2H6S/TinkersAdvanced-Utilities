@@ -1,0 +1,13 @@
+{
+  "title": "Fuel Engraver",
+  "text": [
+    {
+      "text": "Fuel Engraver is a modifier-applying gadget that can apply upgrades bypassing some restriction."
+    },
+    {
+      "text": "Requires Fuel Lens to work and need to be filled by melting fuels.",
+      "paragraph": true
+    }
+  ],
+  "item": "tinkers_advanced:fuel_engraver"
+}

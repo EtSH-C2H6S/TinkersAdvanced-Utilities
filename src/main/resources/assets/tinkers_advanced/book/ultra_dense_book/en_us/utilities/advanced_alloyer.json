@@ -2,7 +2,10 @@
   "title": "Advanced Alloyer",
   "text": [
     {
-      "text": "Placed next to any type of drain, and place fuel tank underneath, and it can start to drain ingredients from the drain and starts alloying."
+      "text": "Placed next to any type of smeltery fluid IO, and place fuel tank underneath, and it can start to drain ingredients from the drain and starts alloying."
+    },
+    {
+      "text": "When the fluid IO is a duct, can filter output from the duct."
     }
   ],
   "item": "tinkers_advanced:advanced_alloyer"

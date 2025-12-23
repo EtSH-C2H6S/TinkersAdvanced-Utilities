@@ -18,6 +18,8 @@
   "item.tinkers_advanced.simple_diamond_lens": "简易钻石热能透镜",
   "item.tinkers_advanced.simple_emerald_lens": "简易绿宝石热能透镜",
 
+  "item.tinkers_advanced.simple_quartz_lens.description": "热能透镜是一类与热射线蚀刻机搭配的物品，用于将透镜上的强化附加到合成的工具上。\n简易透镜均没有材料，但是可以被强化从而获得属性。有钻石、绿宝石、石英和紫水晶4种变体",
+
 
 
   "tooltip.tinkers_advanced.exchanger1": "当放入工具时允许工具与外界进行自动化交互（比如传输物品、能量）。",

@@ -5,6 +5,7 @@ import com.c2h6s.tinkers_advanced.core.content.event.TiAcLoadRegistryClassEvent;
 import com.c2h6s.tinkers_advanced_utilities.TiAcUConfig;
 import com.c2h6s.tinkers_advanced_utilities.content.block.*;
 import com.c2h6s.tinkers_advanced_utilities.content.block.blockEntity.*;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -65,7 +66,7 @@ public class TiAcUBlocks {
                     int temp = TiAcUConfig.COMMON.ROSE_GOLD_TABLE_SEPARATION.get();
                     float low = TiAcUConfig.COMMON.ROSE_GOLD_CASTING_INCREASE.get().floatValue();
                     float high = TiAcUConfig.COMMON.ROSE_GOLD_CASTING_DECREASE.get().floatValue();
-                    pTooltip.add(Component.translatable("tooltip.tinkers_advanced.rose_gold_casting",temp/20,String.format("%.1f",low),String.format("%.1f",high)));
+                    pTooltip.add(Component.translatable("tooltip.tinkers_advanced.rose_gold_casting",temp/20,String.format("%.1f",low),String.format("%.1f",high)).withStyle(ChatFormatting.GRAY));
                 }
             });
     public static final RegistryObject<Block> ROSE_GOLD_BASIN = TiAcCrModule.BLOCKS.register("rose_gold_casting_basin", () ->
@@ -91,7 +92,7 @@ public class TiAcUBlocks {
                     int temp = TiAcUConfig.COMMON.ROSE_GOLD_BASIN_SEPARATION.get();
                     float low = TiAcUConfig.COMMON.ROSE_GOLD_CASTING_INCREASE.get().floatValue();
                     float high = TiAcUConfig.COMMON.ROSE_GOLD_CASTING_DECREASE.get().floatValue();
-                    pTooltip.add(Component.translatable("tooltip.tinkers_advanced.rose_gold_casting",temp/20,String.format("%.1f",low),String.format("%.1f",high)));
+                    pTooltip.add(Component.translatable("tooltip.tinkers_advanced.rose_gold_casting",temp/20,String.format("%.1f",low),String.format("%.1f",high)).withStyle(ChatFormatting.GRAY));
                 }
             });
     public static final RegistryObject<Block> HEPATIZON_TABLE = TiAcCrModule.BLOCKS.register("hepatizon_casting_table", () ->
@@ -114,7 +115,7 @@ public class TiAcUBlocks {
                 @Override
                 public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
                     float high = TiAcUConfig.COMMON.HEPATIZON_CASTING_SPEED.get().floatValue();
-                    pTooltip.add(Component.translatable("tooltip.tinkers_advanced.hepatizon_casting",String.format("%.1f",high)));
+                    pTooltip.add(Component.translatable("tooltip.tinkers_advanced.hepatizon_casting",String.format("%.1f",high)).withStyle(ChatFormatting.GRAY));
                 }
             });
     public static final RegistryObject<Block> HEPATIZON_BASIN = TiAcCrModule.BLOCKS.register("hepatizon_casting_basin", () ->
@@ -137,7 +138,7 @@ public class TiAcUBlocks {
                 @Override
                 public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
                     float high = TiAcUConfig.COMMON.HEPATIZON_CASTING_SPEED.get().floatValue();
-                    pTooltip.add(Component.translatable("tooltip.tinkers_advanced.hepatizon_casting",String.format("%.1f",high)));
+                    pTooltip.add(Component.translatable("tooltip.tinkers_advanced.hepatizon_casting",String.format("%.1f",high)).withStyle(ChatFormatting.GRAY));
                 }
             });
 

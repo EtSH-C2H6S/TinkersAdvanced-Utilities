@@ -56,16 +56,16 @@ public class TiAcURecipeProvider extends RecipeProvider implements ISmelteryReci
                 .setFluid(TinkerFluids.moltenRoseGold.getTag(), 270)
                 .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/rose_gold_table"));
         ItemCastingRecipeBuilder.basinRecipe(TiAcUItems.ROSE_GOLD_FAUCET.get())
-                .setCast(TinkerSmeltery.scorchedFaucet.asItem(),true)
+                .setCast(TinkerSmeltery.searedFaucet.asItem(),true)
                 .setFluid(TinkerFluids.moltenRoseGold.getTag(), 90)
                 .setCoolingTime(180).save(consumer,new ResourceLocation(folder+"/rose_gold_fauset"));
 
         ItemCastingRecipeBuilder.basinRecipe(TiAcUItems.HEPATIZON_BASIN.get())
-                .setCast(TiAcUItems.ROSE_GOLD_BASIN.get(),true)
+                .setCast(TinkerSmeltery.scorchedBasin.asItem(),true)
                 .setFluid(TinkerFluids.moltenHepatizon.getTag(), 270)
                 .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/hepatizon_basin"));
         ItemCastingRecipeBuilder.basinRecipe(TiAcUItems.HEPATIZON_TABLE.get())
-                .setCast(TiAcUItems.ROSE_GOLD_TABLE.get(),true)
+                .setCast(TinkerSmeltery.scorchedTable.asItem(),true)
                 .setFluid(TinkerFluids.moltenHepatizon.getTag(), 270)
                 .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/hepatizon_table"));
         ItemCastingRecipeBuilder.basinRecipe(TiAcUItems.HEPATIZON_FAUCET.get())
