@@ -78,13 +78,13 @@ public class TiAcUConfig {
 
             this.FUEL_ENGRAVER_CAPACITY = builder.comment("Fuel Engraver fluid capacity, 4000 by default.")
                     .comment("热射线蚀刻机的流体容量，默认4000mB。")
-                    .defineInRange("FuelEngraverCapacity",4000,1,Integer.MAX_VALUE);
+                    .defineInRange("FuelEngraverCapacity",1000,1,Integer.MAX_VALUE);
             this.FUEL_ENGRAVER_TEMP_EACH_MODIFIER = builder.comment("Fuel Engraver temperature requirement each modifier, 750 by default.")
                     .comment("热射线蚀刻机每蚀刻一个工具属性需要的温度，默认750℃。多个工具属性的温度相互叠加，可以用来限制最大蚀刻属性种类数。")
                     .defineInRange("FuelEngraverTempRequirement",750,0,Integer.MAX_VALUE);
             this.FUEL_ENGRAVER_AMOUNT_EACH_LEVEL = builder.comment("Fuel Engraver fuel consumption each level, 100 by default.")
                     .comment("热射线蚀刻机的流体消耗，默认每级工具属性消耗100mB。")
-                    .defineInRange("FuelEngraverFuelConsumption",100,0,Integer.MAX_VALUE);
+                    .defineInRange("FuelEngraverFuelConsumption",200,0,Integer.MAX_VALUE);
             this.FUEL_ENGRAVER_AMOUNT_REMOVE_ENGRAVE = builder.comment("Fuel Engraver venom consumption each level when removing engrave, 10 by default.")
                     .comment("热射线蚀刻机移除蚀刻时消耗的毒液量，默认10mB。")
                     .defineInRange("FuelEngraverVenomConsumption",10,0,Integer.MAX_VALUE);
