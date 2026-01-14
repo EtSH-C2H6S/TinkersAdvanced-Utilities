@@ -61,5 +61,9 @@
 
   "modifier.tinkers_advanced.water_washed": "水洗",
   "modifier.tinkers_advanced.water_washed.flavor": "洗洗更健康",
-  "modifier.tinkers_advanced.water_washed.description": "什么效果也没有，在强化后会被自动移除。\n（那我问你，你这个强化是干什么用的）"
+  "modifier.tinkers_advanced.water_washed.description": "什么效果也没有，在强化后会被自动移除。\n（那我问你，你这个强化是干什么用的）",
+
+  "modifier.tinkers_advanced.lens_efficiency": "透镜效率",
+  "modifier.tinkers_advanced.lens_efficiency.flavor": "离子折损缩减",
+  "modifier.tinkers_advanced.lens_efficiency.description": "提升热能透镜的流体效率，不会被蚀刻到工具上。"
 }

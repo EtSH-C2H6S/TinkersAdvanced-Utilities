@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "item": "minecraft:quartz"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    }
+  ],
+  "level": 1,
+  "result": "tconstruct:keen",
+  "tools": {
+    "item": "tinkers_advanced:simple_quartz_lens"
+  }
+}

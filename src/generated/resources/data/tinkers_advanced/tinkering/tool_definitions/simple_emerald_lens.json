@@ -6,6 +6,12 @@
         "abilities": 1,
         "defense": 1
       }
+    },
+    {
+      "type": "tconstruct:base_stats",
+      "stats": {
+        "etstlib:fluid_efficiency": -0.25
+      }
     }
   ]
 }

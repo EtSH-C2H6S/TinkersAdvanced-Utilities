@@ -50,7 +50,7 @@ public class FuelLensItem extends ModifiableItem implements IFuelLensItem {
         tooltips.add(Component.translatable("tooltip.tinkers_advanced.lens_temp").append(""+temp)
                 .withStyle(style -> style.withColor(0xFFE179)));
         boolean hasWarn1 = consumption>FuelEngraverBlockEntity.CFG_CAPACITY;
-        boolean hasWarn2 = MeltingFuelHandler.getUsableFuels(temp).isEmpty();
+        boolean hasWarn2 = MeltingFuelHandler.getUsableFuels(temp).isEmpty()&&!MeltingFuelHandler.getUsableFuels(0).isEmpty();
         if (hasWarn2||hasWarn1) tooltips.add(Component.translatable("tooltip.tinkers_advanced.lens_warn")
                 .withStyle(style -> style.withColor(0xFF0000)));
         if (hasWarn1) tooltips.add(Component.translatable("tooltip.tinkers_advanced.lens_consumption_warn")

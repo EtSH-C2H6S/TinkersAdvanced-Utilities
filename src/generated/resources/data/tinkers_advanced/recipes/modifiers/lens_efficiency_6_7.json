@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "inputs": [
+    {
+      "amount_needed": 4,
+      "tag": "forge:ingots/cinderslime"
+    },
+    {
+      "amount_needed": 4,
+      "item": "tconstruct:ender_slime_crystal"
+    }
+  ],
+  "level": {
+    "max": 7,
+    "min": 6
+  },
+  "result": "tinkers_advanced:lens_efficiency",
+  "tools": {
+    "tag": "tinkers_advanced:modifiable/fuel_lens"
+  }
+}

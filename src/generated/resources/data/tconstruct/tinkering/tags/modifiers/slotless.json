@@ -1,6 +1,9 @@
 {
   "values": [
-    "tinkers_advanced:fuel_engraved",
+    {
+      "id": "tinkers_advanced:water_washed",
+      "required": false
+    },
     {
       "id": "tinkers_advanced:lens_efficiency",
       "required": false

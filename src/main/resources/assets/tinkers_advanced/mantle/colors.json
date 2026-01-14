@@ -1,5 +1,6 @@
 {
   "modifier.tinkers_advanced": {
-    "fuel_engraved": "#B0305C"
+    "fuel_engraved": "#B0305C",
+    "lens_efficiency": "#B0305C"
   }
 }

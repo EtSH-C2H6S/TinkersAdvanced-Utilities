@@ -159,7 +159,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', includes: ['*.jar'])
 
-    implementation fg.deobf("curse.maven:tinkers-advanced-core-1396422:7285464")
+    implementation fg.deobf("curse.maven:tinkers-advanced-core-1396422:7421096")
     implementation fg.deobf("curse.maven:etst-lib-1206379:7248414")
     implementation fg.deobf("slimeknights.tconstruct:TConstruct:1.20.1-${tcon_version}")
     implementation fg.deobf("slimeknights.mantle:Mantle:1.20.1-${mantle_version}")

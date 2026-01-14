@@ -27,5 +27,6 @@ public class TiAcUDataGenerator {
         generator.addProvider(event.includeClient(),new TiAcURecipeProvider(output));
         generator.addProvider(event.includeClient(),new TiAcUModifierTagProvider(output,helper));
         generator.addProvider(event.includeClient(), new TiAcUToolDefinitionProvider(output));
+        generator.addProvider(event.includeClient(),new TiAcUModifierProvider(output));
     }
 }

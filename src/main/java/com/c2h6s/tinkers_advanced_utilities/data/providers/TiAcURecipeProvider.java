@@ -2,6 +2,8 @@ package com.c2h6s.tinkers_advanced_utilities.data.providers;
 
 import com.c2h6s.tinkers_advanced.TinkersAdvanced;
 import com.c2h6s.tinkers_advanced_utilities.TinkersAdvancedUtilities;
+import com.c2h6s.tinkers_advanced_utilities.data.TiAcUModifierIDs;
+import com.c2h6s.tinkers_advanced_utilities.data.TiAcUTagkeys;
 import com.c2h6s.tinkers_advanced_utilities.init.TiAcUItems;
 import com.c2h6s.tinkers_advanced_utilities.init.TiAcUModifiers;
 import net.minecraft.data.PackOutput;
@@ -11,6 +13,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.fluids.TinkerFluids;
@@ -19,7 +22,9 @@ import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerMaterials;
+import slimeknights.tconstruct.shared.block.SlimeType;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
+import slimeknights.tconstruct.tools.data.ModifierIds;
 import slimeknights.tconstruct.world.TinkerWorld;
 
 import java.util.function.Consumer;
@@ -111,6 +116,22 @@ public class TiAcURecipeProvider extends RecipeProvider implements ISmelteryReci
         ModifierRecipeBuilder.modifier(TiAcUModifiers.WATER_WASHED.getId()).exactLevel(1).addInput(Items.WATER_BUCKET)
                 .addInput(Items.WATER_BUCKET).addInput(Items.WATER_BUCKET).addInput(Items.WATER_BUCKET)
                 .save(consumer,modifierFolder("water_washed"));
+        ModifierRecipeBuilder.modifier(TiAcUModifierIDs.LENS_EFFICIENCY).setMaxLevel(5)
+                .addInput(TinkerMaterials.cinderslime.getIngotTag(),4)
+                .addInput(TinkerWorld.earthGeode.asItem(),2)
+                .addInput(TinkerWorld.skyGeode.asItem(),2)
+                .addInput(TinkerWorld.ichorGeode.asItem(),2).setTools(TiAcUTagkeys.Items.MODIFIABLE_FUEL_LENS)
+                .save(consumer,modifierFolder("lens_efficiency_0_5"));
+        ModifierRecipeBuilder.modifier(TiAcUModifierIDs.LENS_EFFICIENCY).setLevelRange(6,7)
+                .addInput(TinkerMaterials.cinderslime.getIngotTag(),4)
+                .addInput(TinkerWorld.enderGeode.asItem(),4).setTools(TiAcUTagkeys.Items.MODIFIABLE_FUEL_LENS)
+                .disallowCrystal()
+                .save(consumer,modifierFolder("lens_efficiency_6_7"));
+        ModifierRecipeBuilder.modifier(ModifierIds.keen).setMaxLevel(1)
+                .addInput(Items.QUARTZ).addInput(Items.DRAGON_BREATH)
+                .setTools(Ingredient.of(TiAcUItems.SIMPLE_QUARTZ_LENS.get()))
+                .disallowCrystal()
+                .save(consumer,modifierFolder("keen"));
     }
 
     @Override

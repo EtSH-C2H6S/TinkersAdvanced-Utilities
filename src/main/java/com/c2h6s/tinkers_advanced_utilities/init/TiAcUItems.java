@@ -46,18 +46,18 @@ public class TiAcUItems {
 
     public static final RegistryObject<FuelLensItem> SIMPLE_QUARTZ_LENS = registerSimpleLens("simple_quartz_lens",
             buildSlots().addSlot(SlotType.UPGRADE,1).addSlot(SlotType.ABILITY,1).build(),
-            List.of(AMMO,THROWABLE));
+            List.of(AMMO,THROWN_AMMO,SINGLE_USE));
     public static final RegistryObject<FuelLensItem> SIMPLE_AMETHYST_LENS = registerSimpleLens("simple_amethyst_lens",
             buildSlots().addSlot(SlotType.UPGRADE,1).addSlot(SlotType.ABILITY,1).build(),
-            List.of(RANGED));
+            List.of(RANGED,BOWS,LAUNCHERS,LONGBOWS,CROSSBOWS,STAFFS,FISHING_RODS));
 
     public static final RegistryObject<FuelLensItem> SIMPLE_DIAMOND_LENS = registerSimpleLens("simple_diamond_lens",
             buildSlots().addSlot(SlotType.UPGRADE,1).addSlot(SlotType.ABILITY,1).build(),
-            List.of(MELEE,MELEE_PRIMARY,SWORD));
+            List.of(MELEE,MELEE_WEAPON,MELEE_PRIMARY,SWORD,HARVEST));
 
     public static final RegistryObject<FuelLensItem> SIMPLE_EMERALD_LENS = registerSimpleLens("simple_emerald_lens",
             buildSlots().addSlot(SlotType.DEFENSE,1).addSlot(SlotType.ABILITY,1).build(),
-            List.of(ARMOR,SHIELDS));
+            List.of(ARMOR,SHIELDS,WORN_ARMOR,HELD_ARMOR));
 
 
     @SubscribeEvent

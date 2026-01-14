@@ -56,5 +56,9 @@
 
   "modifier.tinkers_advanced.water_washed": "Water Washed",
   "modifier.tinkers_advanced.water_washed.flavor": "",
-  "modifier.tinkers_advanced.water_washed.description": "NO effect."
+  "modifier.tinkers_advanced.water_washed.description": "NO effect.",
+
+  "modifier.tinkers_advanced.lens_efficiency": "Lens Efficiency",
+  "modifier.tinkers_advanced.lens_efficiency.flavor": "Reduced ion loss.",
+  "modifier.tinkers_advanced.lens_efficiency.description": "Increase fluid efficiency of fuel lens, won't be engraved Fuel Engraver."
 }

@@ -6,6 +6,21 @@
         "abilities": 1,
         "upgrades": 1
       }
+    },
+    {
+      "type": "tconstruct:traits",
+      "traits": [
+        {
+          "level": 1,
+          "name": "tconstruct:keen"
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:base_stats",
+      "stats": {
+        "etstlib:fluid_efficiency": 0.25
+      }
     }
   ]
 }
