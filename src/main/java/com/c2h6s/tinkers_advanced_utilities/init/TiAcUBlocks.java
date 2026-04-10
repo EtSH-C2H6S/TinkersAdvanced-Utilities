@@ -46,7 +46,7 @@ public class TiAcUBlocks {
             new HepatizonFaucetBlock(BlockBehaviour.Properties.copy(TinkerSmeltery.searedFaucet.get()).sound(SoundType.NETHERITE_BLOCK)));
     public static final RegistryObject<Block> ROSE_GOLD_TABLE = TiAcCrModule.BLOCKS.register("rose_gold_casting_table", () ->
             new CastingTableBlock(BlockBehaviour.Properties.copy(TinkerSmeltery.searedTable.get())
-                    .sound(SoundType.METAL),true) {
+                    .sound(SoundType.METAL),false) {
                 @Override
                 public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pParams) {
                     return List.of(new ItemStack(this.asItem()));
@@ -71,7 +71,7 @@ public class TiAcUBlocks {
             });
     public static final RegistryObject<Block> ROSE_GOLD_BASIN = TiAcCrModule.BLOCKS.register("rose_gold_casting_basin", () ->
             new CastingBasinBlock(BlockBehaviour.Properties.copy(TinkerSmeltery.searedTable.get())
-                    .sound(SoundType.METAL),true) {
+                    .sound(SoundType.METAL),false) {
                 @Override
                 public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pParams) {
                     return List.of(new ItemStack(this.asItem()));

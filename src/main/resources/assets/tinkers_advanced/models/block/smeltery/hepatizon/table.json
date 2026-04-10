@@ -2,7 +2,7 @@
   "parent": "tconstruct:block/template/table",
   "textures": {
     "side":   "tinkers_advanced:block/smeltery/hepatizon/casting/table_side",
-    "top":    "tinkers_advanced:block/smeltery/hepatizon/casting/top",
+    "top":    "tinkers_advanced:block/smeltery/hepatizon/casting/table_plate",
     "bottom": "tinkers_advanced:block/smeltery/hepatizon/casting/bottom"
   }
 }

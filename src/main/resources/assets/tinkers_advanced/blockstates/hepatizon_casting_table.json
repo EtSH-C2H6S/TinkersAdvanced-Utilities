@@ -1,8 +1,12 @@
 {
   "variants": {
-    "facing=north": { "model": "tinkers_advanced:block/smeltery/hepatizon/table" },
-    "facing=south": { "model": "tinkers_advanced:block/smeltery/hepatizon/table", "y": 180 },
-    "facing=west":  { "model": "tinkers_advanced:block/smeltery/hepatizon/table", "y": 270 },
-    "facing=east":  { "model": "tinkers_advanced:block/smeltery/hepatizon/table", "y":  90 }
+    "facing=north,has_item=true": { "model": "tinkers_advanced:block/smeltery/hepatizon/table" },
+    "facing=south,has_item=true": { "model": "tinkers_advanced:block/smeltery/hepatizon/table", "y": 180 },
+    "facing=west,has_item=true":  { "model": "tinkers_advanced:block/smeltery/hepatizon/table", "y": 270 },
+    "facing=east,has_item=true":  { "model": "tinkers_advanced:block/smeltery/hepatizon/table", "y":  90 },
+    "facing=north,has_item=false": { "model": "tinkers_advanced:block/smeltery/hepatizon/table_covered" },
+    "facing=south,has_item=false": { "model": "tinkers_advanced:block/smeltery/hepatizon/table_covered", "y": 180 },
+    "facing=west,has_item=false":  { "model": "tinkers_advanced:block/smeltery/hepatizon/table_covered", "y": 270 },
+    "facing=east,has_item=false":  { "model": "tinkers_advanced:block/smeltery/hepatizon/table_covered", "y":  90 }
   }
 }

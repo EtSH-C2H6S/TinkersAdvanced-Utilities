@@ -53,11 +53,11 @@ public class TiAcURecipeProvider extends RecipeProvider implements ISmelteryReci
         Consumer<FinishedRecipe> conditional;
         folder = baseFolder;
         ItemCastingRecipeBuilder.basinRecipe(TiAcUItems.ROSE_GOLD_BASIN.get())
-                .setCast(TinkerSmeltery.scorchedBasin.asItem(),true)
+                .setCast(TinkerSmeltery.searedBasin.asItem(),true)
                 .setFluid(TinkerFluids.moltenRoseGold.getTag(), 270)
                 .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/rose_gold_basin"));
         ItemCastingRecipeBuilder.basinRecipe(TiAcUItems.ROSE_GOLD_TABLE.get())
-                .setCast(TinkerSmeltery.scorchedTable.asItem(),true)
+                .setCast(TinkerSmeltery.searedTable.asItem(),true)
                 .setFluid(TinkerFluids.moltenRoseGold.getTag(), 270)
                 .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/rose_gold_table"));
         ItemCastingRecipeBuilder.basinRecipe(TiAcUItems.ROSE_GOLD_FAUCET.get())
@@ -74,7 +74,7 @@ public class TiAcURecipeProvider extends RecipeProvider implements ISmelteryReci
                 .setFluid(TinkerFluids.moltenHepatizon.getTag(), 270)
                 .setCoolingTime(270).save(consumer,new ResourceLocation(folder+"/hepatizon_table"));
         ItemCastingRecipeBuilder.basinRecipe(TiAcUItems.HEPATIZON_FAUCET.get())
-                .setCast(TiAcUItems.ROSE_GOLD_FAUCET.get(),true)
+                .setCast(TinkerSmeltery.scorchedFaucet,true)
                 .setFluid(TinkerFluids.moltenHepatizon.getTag(), 90)
                 .setCoolingTime(180).save(consumer,new ResourceLocation(folder+"/hepatizon_faucet"));
 

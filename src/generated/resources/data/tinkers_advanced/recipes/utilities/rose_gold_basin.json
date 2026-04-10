@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:casting_basin",
   "cast": {
-    "item": "tconstruct:scorched_basin"
+    "item": "tconstruct:seared_basin"
   },
   "cast_consumed": true,
   "cooling_time": 270,
